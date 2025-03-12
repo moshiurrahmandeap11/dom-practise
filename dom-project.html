@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Chrome, Safari, Edge */
+      .no-spinner::-webkit-inner-spin-button,
+      .no-spinner::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body class="flex justify-center items-center flex-col">
+    <!-- youtube section -->
+    <section id="youTubeSection" class="mb-20">
+      <div class="flex flex-col items-center justify-center mt-10">
+        <h1 class="font-extrabold text-2xl">Youtube Subscribe Button</h1>
+        <button
+          class="btn border border-black px-6 py-3 mt-4 rounded-full font-bold text-xl cursor-pointer bg-black text-white"
+          onclick="subscribe()"
+        >
+          Subscribe
+        </button>
+      </div>
+    </section>
+    <!-- section -->
+    <section id="rockGame">
+      <div class="flex flex-col items-center justify-center">
+        <h1 class="font-extrabold text-2xl">Rock Paper Scissors Game</h1>
+        <a
+          onclick="playgame()"
+          class="text-xl underline cursor-pointer font-bold m-4"
+          href="#"
+          >Play Now</a
+        >
+      </div>
+      <div class="flex flex-col items-center justify-center">
+        <h1 class="font-bold text-3xl text-center mb-4 mt-20">
+          Amazon Shipping Calculator
+        </h1>
+        <a
+          onclick="calculateNow()"
+          class="text-xl underline cursor-pointer font-bold m-4"
+          href="#"
+          >Calculate Now</a
+        >
+      </div>
+    </section>
+
+    <!-- section rock paper scissors -->
+    <section id="rockPaperScissors">
+      <h3
+        onclick="backToPanel()"
+        class="back-to-panel font-bold text-xl px-6 py-3 lg:px-10 lg:py-5 rounded-lg shadow-2xl text-center mt-10 mb-10 cursor-pointer hover:bg-green-400 transition-all"
+      >
+        Back To Panel
+      </h3>
+      <ul class="flex items-center justify-center gap-10">
+        <div
+          onclick="rpsGame('rock')"
+          class="w-20 h-20 lg:w-28 lg:h-28 border-2 border-black rounded-full flex items-center justify-center hover:bg-black hover:text-white cursor-pointer lg:text-2xl font-bold"
+        >
+          <li>Rock</li>
+        </div>
+        <div
+          onclick="rpsGame('paper')"
+          class="w-20 h-20 lg:w-28 lg:h-28 border-2 border-black rounded-full flex items-center justify-center hover:bg-black hover:text-white cursor-pointer lg:text-2xl font-bold"
+        >
+          <li>Paper</li>
+        </div>
+        <div
+          onclick="rpsGame('scissors')"
+          class="w-20 h-20 lg:w-28 lg:h-28 border-2 border-black rounded-full flex items-center justify-center hover:bg-black hover:text-white cursor-pointer lg:text-2xl font-bold"
+        >
+          <li>Scissors</li>
+        </div>
+      </ul>
+      <h3 class="text-center mt-10 lg:text-2xl" id="result"></h3>
+      <h3
+        class="text-center mt-10 text-green-400 lg:text-2xl"
+        id="newGameButton"
+      ></h3>
+
+      <div class="flex items-center justify-center gap-10 mt-14 lg:gap-28">
+        <div class="flex flex-col items-center justify-center">
+          <span class="font-bold text-2xl" id="winCount">0</span>
+          <p class="font-bold text-2xl">Win</p>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <span class="font-bold text-2xl" id="loseCount">0</span>
+          <p class="font-bold text-2xl">Lose</p>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <span class="font-bold text-2xl" id="tieCount">0</span>
+          <p class="font-bold text-2xl">Tie</p>
+        </div>
+      </div>
+      <div class="flex justify-center items-center mt-10">
+        <button
+          class="px-8 py-4 bg-green-400 rounded-xl font-bold text-xl cursor-pointer"
+          id="newGame"
+        >
+          New Game
+        </button>
+      </div>
+    </section>
+    <!-- shipping calculator -->
+
+    <section id="shippingCalculator" class="my-20">
+      <h3
+        onclick="backToPanel()"
+        class="back-to-panel font-bold text-xl px-6 py-3 lg:px-10 lg:py-5 rounded-lg shadow-2xl text-center mb-10 cursor-pointer hover:bg-green-400 transition-all"
+      >
+        Back To Panel
+      </h3>
+      <h1 class="font-bold text-3xl text-center mb-4">
+        Amazon Shipping Calculator
+      </h1>
+      <h3 class="font-medium text-xl text-center">
+        Orders Under $40 - shipping cost $10
+      </h3>
+      <h3 class="font-medium text-xl text-center mt-4">
+        Orders over $40 - shipping cost <strong>free</strong>
+      </h3>
+      <div class="flex justify-center items-center gap-4 mt-10">
+        <div>
+          <input
+            class="pl-2 py-2 lg:pl-4 lg:py-4 outline-none border-2 border-black rounded-xl no-spinner font-bold"
+            placeholder="enter orders"
+            type="number"
+            id="orderInput"
+          />
+        </div>
+        <div>
+          <button
+            class="px-4 py-2 lg:px-8 lg:py-4 bg-green-400 rounded-xl font-bold text-xl"
+            id="orderCalculateButton"
+          >
+            Calculate
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center justify-center gap-10 mt-10">
+        <button
+          id="clearButton"
+          class="px-4 lg:px-8 py-2 bg-green-400 rounded-xl font-bold text-xl"
+        >
+          Clear
+        </button>
+        <h3 class="font-bold text-2xl text-center">
+          Total Cost : <span id="totalCost"></span>
+        </h3>
+      </div>
+    </section>
+    <script src="./dom-project.js"></script>
+  </body>
+</html>
