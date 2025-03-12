@@ -105,10 +105,13 @@ const calculateNow = () => {
 // order calculation
 
 orderButton.addEventListener('click', () => {
-    const orderCount = orderInput.value;
-    let sum = orderCount * 0.1;
-    let totalMath = sum + 40;
-    totalCost.innerText = totalMath;
+    let orderCount = orderInput.value;
+    let convertedOrderCount = Number(orderInput.value)
+    console.log(typeof convertedOrderCount);
+    if (convertedOrderCount < 40){
+        convertedOrderCount = convertedOrderCount + 10
+        totalCost.innerText = convertedOrderCount;
+    }
 })
 
 clearButton.addEventListener('click', () => {
